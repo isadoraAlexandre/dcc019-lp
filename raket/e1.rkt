@@ -85,6 +85,8 @@ Exemplo de usos do tipo Environment:
 (define env (extend-env 'd 6     ; cria um ambiente a partir da inserção da chave ('d, 6) no ambiente abaixo
               (extend-env 'a 1   ; cria um ambiente com a chave ('a, 1) no ambiente vazio
                   empty-env)))   ; cria um ambiente vazio
+
+;['d -> 6, 'a -> 1]
                             
 (apply-env env 'd) ; obtém o valor associado com a chave 'd no ambiente env ====> resultado 6
 (apply-env env 'a) ; obtém o valor associado com a chave 'a no ambiente env ====> resultado 1
@@ -102,6 +104,8 @@ Antes de discutir a implementação por tipo de dados, observaremos que um novo 
          (extend-env k₃ v₃
             ...
                (extend-env kₙ vₙ empty-env))))
+
+;('extend 'd 6 ('extend 'a 'null))
 
 Note que um ambiente é criado com uma sequência de operações extend-env e finalizado com o empty-env.
 Podemos representar um ambiente usando uma lista estruturada, na qual um ambiente é uma lista com o primeiro elemento
@@ -293,6 +297,8 @@ c) Implemente as operações em um estilo procedural.
      Bintree → () | (Int Bintree Bintree)
 
 Considerando essa representação, implemente:
+
+(number->bintree 3) => (3 () ())
 
 a) a função number->bintree, que dado um número, produz uma árvore binária contendo esse número como raiz e duas subárvores vazias
 b) funções insert-to-left e insert-to-right para inserir um número à esquerda, ou à direita, respectivamente, em uma árvore binária. 
