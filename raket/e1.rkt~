@@ -343,37 +343,6 @@ Considerando essa representação, implemente:
 (number->bintree 3) => (3 () ())
 
 a) a função number->bintree, que dado um número, produz uma árvore binária contendo esse número como raiz e duas subárvores vazias
-|#
-
-(define (number->bintree n)
-  (list n '() '()))
-
-#|
 b) funções insert-to-left e insert-to-right para inserir um número à esquerda, ou à direita, respectivamente, em uma árvore binária. 
+
 |#
-
-(define (insert-to-left n arv)
-  (if (null? arv) (list n '() '())
-      (list (car arv) (list n '() '()) (caddr arv))))
-
-(define (insert-to-right n arv)
-  (if (null? arv) (list n '() '())
-      (list (car arv) (cadr arv) (list n '() '()))))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
